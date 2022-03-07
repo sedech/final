@@ -62,7 +62,7 @@ nav{
     background-color: rgba(44,175,209, 0.7);    
 }
 
-.resultados{
+.city-weather{
     display: none;
     align-items: center;
     background: rgba(44,175,209, 0.7);
@@ -75,7 +75,7 @@ nav{
     border: 1px solid orange;
 }
 
-.formulario{
+.weather-form{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -171,7 +171,7 @@ h1#ciudadConsultada {
 
 footer {
     background: rgb(63,251,249);
-    background: radial-gradient(circle, rgb(63, 97, 251) 0%, rgb(94, 251, 204) 57%, rgb(252, 70, 85) 100%);
+    background: radial-gradient(circle, rgba(63,251,249,1) 0%, rgba(94,129,251,1) 57%, rgba(70,252,143,1) 100%);
     text-align: center;
     padding: 10px;
     font-weight: 600;
