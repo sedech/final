@@ -12,37 +12,37 @@
     <header>
         <nav>
             <div class="logo">
-                <h1><i class="fas fa-sun yellow"></i>World Weather</h1>
+                <h1><i class="fas fa-sun yellow" id="icon"></i>World Weather</h1>
             </div>
         </nav>
     </header>
     <main>
         <div class="container">
-            <div id="formulario" class="formulario">
+            <div class="formulario" id="weather-form">
                 <form class="form" action="">
                     <div>
                         <label for="">Seleccione ciudad</label>
                         <hr>
                     </div>
-                    <select name="opciones" id="seleccion" class="seleccion" onchange="checkWeather()">
-                        <option disabled selected value="0">Seleccione una opcion</option>
+                    <select name="opciones" class="seleccion" id="selectCity"  onchange="checkWeather()">
+                        <option disabled selected value="0">Seleccione una Ciudad</option>
                     </select>
                     <div>
                         <button type="button" id="add" onclick="updateSelect()"><i class="fas fa-sync-alt"> Refresh Select</i></button>
                     </div>
 
-                    <div id="result" class="form-control">
+                    <div class="form-control" id="result">
                         resultado
                     </div>
                     <div>
                         <a href="add.html">Add City</a>
                     </div>
-                    <div id="result2" class="form-control">
+                    <div class="form-control" id="result2">
                         error
                     </div>
                 </form>
             </div>
-            <div class="resultados" id="resultados">
+            <div class="resultados" id="city-weather">
                 <div>
                     <h1 id="ciudadConsultada"></h1>
                 </div>
