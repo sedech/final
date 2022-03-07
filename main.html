@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,6 +9,7 @@
     <script src="js/index.js" defer></script>
     <title>Weather</title>
 </head>
+
 <body>
     <header>
         <nav>
@@ -24,11 +26,12 @@
                         <label for="">Seleccione ciudad</label>
                         <hr>
                     </div>
-                    <select name="opciones" class="seleccion" id="selectCity"  onchange="checkWeather()">
+                    <select name="opciones" class="seleccion" id="selectCity" onchange="checkCityWeather()">
                         <option disabled selected value="0">Seleccione una Ciudad</option>
                     </select>
                     <div>
-                        <button type="button" id="add" onclick="updateSelect()"><i class="fas fa-sync-alt"> Refresh Select</i></button>
+                        <button type="button" id="add" onclick="updateSelect()"><i class="fas fa-sync-alt"> Refresh
+                                Select</i></button>
                     </div>
 
                     <div class="form-control" id="result">
@@ -60,4 +63,5 @@
         <p class="upper">copyright ©️ 2022 - Weather Sedech - TUP</p>
     </footer>
 </body>
+
 </html>
