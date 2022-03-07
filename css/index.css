@@ -84,15 +84,6 @@ input{
     margin-right: 10px;
 }
 
-footer {
-    background: rgb(63,251,249);
-    background: radial-gradient(circle, rgba(63,251,249,1) 0%, rgba(94,129,251,1) 57%, rgba(70,252,143,1) 100%);
-    text-align: center;
-    padding: 10px;
-    font-weight: 600;
-    border-top: 1px solid orange;    
-}
-
 
 .yellow {
     color:orange;
@@ -107,4 +98,13 @@ footer {
     font-size: 18px;
     cursor:pointer;
     cursor:pointer; 
+}
+
+footer {
+    background: rgb(63,251,249);
+    background: radial-gradient(circle, rgba(63,251,249,1) 0%, rgba(94,129,251,1) 57%, rgba(70,252,143,1) 100%);
+    text-align: center;
+    padding: 10px;
+    font-weight: 600;
+    border-top: 1px solid orange;    
 }
