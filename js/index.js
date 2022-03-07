@@ -11,8 +11,8 @@ let citiesList = []
 
 function validarCiudad() {
     let arrayCities = JSON.parse(localStorage.getItem("cities"));
-    if(arrayCities == null){
-        return 
+    if (arrayCities == null) {
+        return
     }
     for (let i = 0; i <= arrayCities.length; i++) {
         if (ciudadAgregada.value === arrayCities[i]) {
@@ -44,8 +44,8 @@ function cityAdd() {
         result2.style.display = "block";
         alert(ciudadAgregada.value + " correctamente añadida");
         result2.style.color = "lime";
-        listaCiudades.push(ciudadAgregada.value)
-        localStorage.setItem("ciudadess", JSON.stringify(listaCiudades))
+        citiesList.push(ciudadAgregada.value)
+        localStorage.setItem("ciudadess", JSON.stringify(citiesList))
         ciudadAgregada.value = ""
         setTimeout(function () {
             return result2.style.display = "none";
@@ -54,12 +54,12 @@ function cityAdd() {
 }
 
 function updateSelect() {
-    let arrayCiudades = JSON.parse(localStorage.getItem("cities"));
+    let arrayCiudades = JSON.parse(localStorage.getItem("ciudadess"));
     arrayCiudades.forEach(array => {
-        let opcion = document.createElement('opciones');
+        let opcion = document.createElement('option');
         opcion.value = array;
         opcion.text = array;
-        ciudades.add(opcion);
+        cities.add(opcion);
     })
 }
 
@@ -69,31 +69,31 @@ function displayError() {
 }
 
 function checkCityWeather() {
-      
+    let city = document.getElementById("selectCity").value;
     if (cities.value != "") {
         resultadoDisplay.style.display = "block";
-    
-    let apiKey = "3936d0749fdc3124c6566ed26cf11978";
-    let url = "https://api.openweathermap.org/data/2.5/weather?q=" + selectCity.value + "&appid=apikey&units=metric&lang=es";
-    fetch(url)
-        .then((cityStorage) => cityStorage.json())
-        .then(data => cityData(data))
-        .catch((error) => {
-            console.log(error);
-        })
+
+        let apiKey = "3936d0749fdc3124c6566ed26cf11978";
+        let url = "https://api.openweathermap.org/data/2.5/weather?q=" + selectCity.value + "&appid=3936d0749fdc3124c6566ed26cf11978&units=metric&lang=es";
+        fetch(url)
+            .then((cityStorage) => cityStorage.json())
+            .then(data => cityData(data))
+            .catch((error) => {
+                console.log(error);
+            })
     }
     else {
         alert("no hay ninguna ciudad seleccionada")
     }
 
 }
-function cityData (data) {
+function cityData(data) {
     let tempValue = data['main']['temp'];
     let sensacionValue = data['main']['feels_like'];
     let humedadValue = data['main']['humidity'];
     let descripcionValue = data['weather'][0]['description'];
 
-    ciudadConsultada.innerHTML = "Clima en: " + seleccion.value
+    ciudadConsultada.innerHTML = "Clima en: " + selectCity.value
     tempActual.innerHTML = "Temperatura actual: " + tempValue + " °C";
     sensacion.innerHTML = "Sensacion Termica: " + sensacionValue + " °C";
     humedad.innerHTML = "Humedad: " + humedadValue + " %";
