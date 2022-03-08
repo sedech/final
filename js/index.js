@@ -10,7 +10,7 @@ const ciudadConsultada = document.getElementById("ciudadConsultada")
 let citiesList = []
 
 function validarCiudad() {
-    let arrayCities = JSON.parse(localStorage.getItem("cities"));
+    let arrayCities = JSON.parse(localStorage.getItem("citiess"));
     if (arrayCities == null) {
         return
     }
@@ -36,16 +36,19 @@ function cityAdd() {
         result2.style.display = "block";
         alert("La ciudad ya esta cargada");
         result2.style.color = "red"
+        
         setTimeout(function () {
             return result2.style.display = "none";
         }, 2000)
+        
+        
     }
     else {
         result2.style.display = "block";
         alert(ciudadAgregada.value + " correctamente añadida");
         result2.style.color = "lime";
         citiesList.push(ciudadAgregada.value)
-        localStorage.setItem("ciudadess", JSON.stringify(citiesList))
+        localStorage.setItem("citiess", JSON.stringify(citiesList))
         ciudadAgregada.value = ""
         setTimeout(function () {
             return result2.style.display = "none";
@@ -54,7 +57,7 @@ function cityAdd() {
 }
 
 function updateSelect() {
-    let arrayCiudades = JSON.parse(localStorage.getItem("ciudadess"));
+    let arrayCiudades = JSON.parse(localStorage.getItem("citiess"));
     arrayCiudades.forEach(array => {
         let opcion = document.createElement('option');
         opcion.value = array;
@@ -63,17 +66,13 @@ function updateSelect() {
     })
 }
 
-function displayError() {
-    var error = document.getElementById("result")
-
-}
+updateSelect()
 
 function checkCityWeather() {
     let city = document.getElementById("selectCity").value;
     if (cities.value != "") {
         resultadoDisplay.style.display = "block";
-
-        let apiKey = "3936d0749fdc3124c6566ed26cf11978";
+        resultadoDisplay.style.color = "yellow";
         let url = "https://api.openweathermap.org/data/2.5/weather?q=" + selectCity.value + "&appid=3936d0749fdc3124c6566ed26cf11978&units=metric&lang=es";
         fetch(url)
             .then((cityStorage) => cityStorage.json())
@@ -93,10 +92,11 @@ function cityData(data) {
     let humedadValue = data['main']['humidity'];
     let descripcionValue = data['weather'][0]['description'];
 
-    ciudadConsultada.innerHTML = "Clima en: " + selectCity.value
-    tempActual.innerHTML = "Temperatura actual: " + tempValue + " °C";
+    ciudadConsultada.innerHTML = "Clima En: " + selectCity.value
+    tempActual.innerHTML = "Temperatura Actual: " + tempValue + " °C";
     sensacion.innerHTML = "Sensacion Termica: " + sensacionValue + " °C";
     humedad.innerHTML = "Humedad: " + humedadValue + " %";
     descripcion.innerHTML = descripcionValue;
 
 }
+
