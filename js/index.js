@@ -12,11 +12,11 @@ let citiesList = []
 function validarCiudad() {
     let arrayCities = JSON.parse(localStorage.getItem("citiess"));
     if (arrayCities == null) {
-        return
+        return;
     }
     for (let i = 0; i <= arrayCities.length; i++) {
         if (ciudadAgregada.value === arrayCities[i]) {
-            return false
+            return false;
         }
     }
 }
@@ -28,9 +28,8 @@ function cityAdd() {
         alert("Escribir la ciudad deseada");
         result2.style.color = "green";
         setTimeout(function () {
-            result2.style.display = "none";
+        return result2.style.display = "none";
         }, 2000)
-        return;
     }
     else if (boolCity == false) {
         result2.style.display = "block";
@@ -66,7 +65,7 @@ function updateSelect() {
     })
 }
 
-updateSelect()
+updateSelect();
 
 function checkCityWeather() {
     let city = document.getElementById("selectCity").value;
@@ -75,7 +74,7 @@ function checkCityWeather() {
         resultadoDisplay.style.color = "yellow";
         let url = "https://api.openweathermap.org/data/2.5/weather?q=" + selectCity.value + "&appid=3936d0749fdc3124c6566ed26cf11978&units=metric&lang=es";
         fetch(url)
-            .then((cityStorage) => cityStorage.json())
+            .then((response) => response.json())
             .then(data => cityData(data))
             .catch((error) => {
                 console.log(error);
@@ -91,12 +90,13 @@ function cityData(data) {
     let sensacionValue = data['main']['feels_like'];
     let humedadValue = data['main']['humidity'];
     let descripcionValue = data['weather'][0]['description'];
-
-    ciudadConsultada.innerHTML = "Clima En: " + selectCity.value
+   // concatenacion de texto
+    ciudadConsultada.innerHTML = "Clima En: " + selectCity.value;
     tempActual.innerHTML = "Temperatura Actual: " + tempValue + " °C";
     sensacion.innerHTML = "Sensacion Termica: " + sensacionValue + " °C";
     humedad.innerHTML = "Humedad: " + humedadValue + " %";
     descripcion.innerHTML = descripcionValue;
+    
 
 }
 
