@@ -25,9 +25,7 @@ header{
     justify-content: center;
     width: 100%;
     height: 60px;
-    background: rgb(161, 154, 154);
-    background: linear-gradient(90deg, rgba(0,0,0,1) 8%, rgba(51,51,51,1) 48%, rgba(102,102,102,1) 80%);
-    border-bottom: 1px solid orange;    
+    background: rgb(21, 172, 43);  
 }
 
 
@@ -54,6 +52,7 @@ nav{
 
 .container{
     display: flex;
+    gap: 50px;
     justify-content: center;
     align-items: center;
     height: 100vh;
@@ -159,6 +158,7 @@ h1#ciudadConsultada {
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-size: 25px;
 }
 
 #descripcion {
@@ -170,10 +170,8 @@ h1#ciudadConsultada {
 }
 
 footer {
-    background: rgb(63,251,249);
-    background: radial-gradient(circle, rgba(63,251,249,1) 0%, rgba(94,129,251,1) 57%, rgba(70,252,143,1) 100%);
+    background: rgb(232, 251, 63);
     text-align: center;
     padding: 10px;
-    font-weight: 600;
-    border-top: 1px solid orange;    
+    font-weight: 600;   
 }
