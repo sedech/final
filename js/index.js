@@ -72,8 +72,8 @@ function checkCityWeather() {
     if (cities.value != "") {
         resultadoDisplay.style.display = "block";
         resultadoDisplay.style.color = "yellow";
-        let url = "https://api.openweathermap.org/data/2.5/weather?q=" + selectCity.value + "&appid=3936d0749fdc3124c6566ed26cf11978&units=metric&lang=es";
-        fetch(url)
+        let urlApi = "https://api.openweathermap.org/data/2.5/weather?q=" + selectCity.value + "&appid=3936d0749fdc3124c6566ed26cf11978&units=metric&lang=es";
+        fetch(urlApi)
             .then((response) => response.json())
             .then(data => cityData(data))
             .catch((error) => {
