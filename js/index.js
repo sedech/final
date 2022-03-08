@@ -10,7 +10,7 @@ const ciudadConsultada = document.getElementById("ciudadConsultada")
 let citiesList = []
 
 function validarCiudad() {
-    let arrayCities = JSON.parse(localStorage.getItem("citiess"));
+    let arrayCities = JSON.parse(localStorage.getItem("item"));
     if (arrayCities == null) {
         return;
     }
@@ -34,7 +34,7 @@ function cityAdd() {
     else if (boolCity == false) {
         result2.style.display = "block";
         alert("La ciudad ya esta cargada");
-        result2.style.color = "red"
+        result2.style.color = "red";
         
         setTimeout(function () {
             return result2.style.display = "none";
@@ -47,7 +47,7 @@ function cityAdd() {
         alert(ciudadAgregada.value + " correctamente añadida");
         result2.style.color = "lime";
         citiesList.push(ciudadAgregada.value)
-        localStorage.setItem("citiess", JSON.stringify(citiesList))
+        localStorage.setItem("item", JSON.stringify(citiesList))
         ciudadAgregada.value = ""
         setTimeout(function () {
             return result2.style.display = "none";
@@ -56,7 +56,7 @@ function cityAdd() {
 }
 
 function updateSelect() {
-    let arrayCiudades = JSON.parse(localStorage.getItem("citiess"));
+    let arrayCiudades = JSON.parse(localStorage.getItem("item"));
     arrayCiudades.forEach(array => {
         let opcion = document.createElement('option');
         opcion.value = array;
@@ -76,9 +76,9 @@ function checkCityWeather() {
         fetch(urlApi)
             .then((response) => response.json())
             .then(data => cityData(data))
-            .catch((error) => {
+            .catch(function(error) {
                 console.log(error);
-            })
+            });
     }
     else {
         alert("no hay ninguna ciudad seleccionada")
