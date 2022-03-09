@@ -8,28 +8,29 @@ const humidity = document.getElementById("humedad")
 const descripcion = document.getElementById("descripcion")
 const ciudadConsultada = document.getElementById("ciudadConsultada")
 let citiesList = []
-
+// mod
 function validarCiudad() {
     let arrayCities = JSON.parse(localStorage.getItem("item"));
     if (arrayCities == null) {
-        return;
+        return true;
     }
     for (let i = 0; i <= arrayCities.length; i++) {
         if (ciudadAgregada.value === arrayCities[i]) {
             return false;
         }
     }
+    return true;
 }
-
+// .inner imp
 function cityAdd() {
-    boolCity = validarCiudad()
+    let boolCity = validarCiudad();
     if (ciudadAgregada.value.length == 0) {
         result2.style.display = "block";
         alert("Escribir la ciudad deseada");
-        result2.style.color = "green";
+        result2.style.color = "red";
         setTimeout(function () {
         return result2.style.display = "none";
-        }, 2000)
+        }, 10000)
     }
     else if (boolCity == false) {
         result2.style.display = "block";
@@ -38,7 +39,7 @@ function cityAdd() {
         
         setTimeout(function () {
             return result2.style.display = "none";
-        }, 2000)
+        }, 10000)
         
         
     }
@@ -51,7 +52,7 @@ function cityAdd() {
         ciudadAgregada.value = ""
         setTimeout(function () {
             return result2.style.display = "none";
-        }, 2000)
+        }, 10000)
     }
 }
 
@@ -68,7 +69,7 @@ function updateSelect() {
 updateSelect();
 
 function checkCityWeather() {
-    let city = document.getElementById("selectCity").value;
+   // let city = document.getElementById("selectCity").value;
     if (cities.value != "") {
         resultadoDisplay.style.display = "block";
         resultadoDisplay.style.color = "yellow";
@@ -86,11 +87,11 @@ function checkCityWeather() {
 
 }
 function cityData(data) {
-    let tempValue = data['main']['temp'];
+    let tempValue = data['main']['temp']; //data.main.temp a cons
     let sensacionValue = data['main']['feels_like'];
     let humedadValue = data['main']['humidity'];
     let descripcionValue = data['weather'][0]['description'];
-   // concatenacion de texto
+   
     ciudadConsultada.innerHTML = "Clima En: " + selectCity.value;
     tempActual.innerHTML = "Temperatura Actual: " + tempValue + " °C";
     sensacion.innerHTML = "Sensacion Termica: " + sensacionValue + " °C";
